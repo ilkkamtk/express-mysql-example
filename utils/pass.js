@@ -20,7 +20,7 @@ passport.use(new LocalStrategy(
       const doLogin = (username, password) => {
         return new Promise((resolve, reject) => {
           mediaTable.login([username], (result) => {
-            bcrypt.compare(password, result[0].passwd, function(err, res) {
+            bcrypt.compare(password, result[0].passwd, (err, res) => {
               // res == true
               if (res) {
                 resolve(result);
@@ -48,14 +48,14 @@ passport.use(new LocalStrategy(
 ));
 
 const login = (req, res, next) => {
-  passport.authenticate('local', function(err, user, info) {
+  passport.authenticate('local', (err, user, info) => {
     if (err) {
       return next(err);
     }
     if (!user) { // if login not happening
       return res.sendStatus(403); // http code forbidden
     }
-    req.logIn(user, function(err) {
+    req.logIn(user, (err) => {
       if (err) {
         return next(err);
       }
@@ -68,7 +68,7 @@ const login = (req, res, next) => {
 const register = (req, res, next) => {
   console.log(req.body);
   const saltRounds = 10;
-  bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+  bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
     // Store hash in your password DB.
     console.log('hash', hash);
     mediaTable.register([req.body.username, hash], next);
