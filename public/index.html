@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="modules/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<div class="container">
+    <div class="form-container visible">
+        <h3>Login</h3>
+        <form id="loginform">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <div class="form-container visible">
+        <h3>Register</h3>
+        <form id="registerform">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <div class="form-container hidden">
+        <h3>Add image</h3>
+        <form id="mediaform">
+            <input type="text" name="category" placeholder="Category">
+            <input type="text" name="title" placeholder="Title">
+            <textarea name="details" placeholder="Details"></textarea>
+            <label class="button">Select image
+                <input type="file" name="my-image" accept="image/*">
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="form-container hidden">
+        <h3>Update image</h3>
+        <form id="updateform">
+            <input type="text" name="category" placeholder="Category">
+            <input type="text" name="title" placeholder="Title">
+            <textarea name="details" placeholder="Details"></textarea>
+            <input type="hidden" name="mID">
+            <button type="submit" disabled>Save</button>
+        </form>
+    </div>
+    <nav class="row">
+        <div id="categories">
+
+        </div>
+        <div>
+            <button id="reset-button">Reset</button>
+        </div>
+    </nav>
+    <nav class="row">
+        <div class="form-container hidden">
+            <button id="all-button">Show All</button>
+            <button id="show-my-button">Show My Images</button>
+        </div>
+    </nav>
+    <h3 id="username"></h3>
+    <main>
+
+    </main>
+</div>
+
+<div class="modal hidden">
+    <button>&times;</button>
+    <h4>Map</h4>
+
+    <figure>
+        <img src="" alt="">
+        <div id="map" class="small-map"></div>
+    </figure>
+</div><!-- /.modal -->
+
+<script src="modules/moment/moment.js"></script>
+<script src="modules/leaflet/dist/leaflet.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+</html>
